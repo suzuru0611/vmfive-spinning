@@ -44,3 +44,9 @@ function autoSlide() {
 }
 
 autoSlide(); // 啟動自動輪播
+
+//關閉按鈕
+function closeButton() {
+  var adContainer = document.querySelector(".ad-container");
+  adContainer.style.display = "none";
+}
