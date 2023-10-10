@@ -7,6 +7,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no"
     />
+    <link rel="stylesheet" href="commercial.css" />
     <style>
       body {
         font-family: sans-serif;
@@ -20,92 +21,6 @@
         width: 90%;
         max-width: 600px;
         margin: 10px auto;
-      }
-      .ad-container {
-        position: sticky;
-        bottom: -5px;
-      }
-      .slideshow-container {
-        max-width: 800px;
-        position: relative;
-        margin: auto;
-      }
-
-      .mySlides {
-        display: none;
-      }
-
-      .mySlides img {
-        width: 100%;
-        animation: slidesMove 7s infinite;
-      }
-      @keyframes slidesMove {
-        0% {
-          transform: rotate(-180deg);
-        }
-        10% {
-          transform: rotate(10deg);
-        }
-        13% {
-          transform: rotate(0deg);
-        }
-        15% {
-          transform: rotate(5deg);
-        }
-        20% {
-          transform: rotate(0deg);
-        }
-        25% {
-          transform: rotate(0deg);
-        }
-        60% {
-          transform: rotate(0deg);
-        }
-        62% {
-          transform: rotate(5deg);
-        }
-        70% {
-          transform: rotate(0deg);
-        }
-        100% {
-          transform: rotate(0deg);
-        }
-      }
-      .close-button img {
-        position: absolute;
-        top: -40px;
-        right: 0;
-        width: 50px;
-      }
-      .close-button img:hover {
-        cursor: pointer;
-      }
-      .hand-move {
-        display: flex;
-        position: relative;
-        justify-content: center;
-      }
-      .hand-move img {
-        position: absolute;
-        top: -40px;
-        width: 80px;
-        z-index: 1;
-        animation: handMoveAnimation 2.5s infinite;
-      }
-      .hand-move img:hover {
-        cursor: pointer;
-      }
-
-      @keyframes handMoveAnimation {
-        0% {
-          transform: translateX(-50px) rotate(0);
-        }
-        50% {
-          transform: translateX(50px) rotate(10deg);
-        }
-        100% {
-          transform: translateX(-50px) rotate(0);
-        }
       }
     </style>
   </head>
@@ -210,52 +125,5 @@
       </div>
     </div>
   </body>
+  <script type="text/javascript" src="./commercial.js"></script>
 </html>
-<script>
-  var slideIndex = 0;
-  var touchStartX = 0;
-  var touchEndX = 0;
-
-  // 添加觸控事件監聽器
-  var slideshow = document.querySelector(".slideshow-container");
-  slideshow.addEventListener("touchstart", handleTouchStart, false);
-  slideshow.addEventListener("touchend", handleTouchEnd, false);
-
-  function handleTouchStart(event) {
-    touchStartX = event.touches[0].clientX;
-  }
-
-  function handleTouchEnd(event) {
-    touchEndX = event.changedTouches[0].clientX;
-
-    if (touchStartX - touchEndX > 20) {
-      showSlides(1); // 向左滑動，顯示下一張圖片
-    } else if (touchEndX - touchStartX > 20) {
-      showSlides(-1); // 向右滑動，顯示上一張圖片
-    }
-  }
-
-  function showSlides(n) {
-    var i;
-    var slides = document.getElementsByClassName("mySlides");
-    for (i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";
-    }
-    slideIndex += n;
-    if (slideIndex > slides.length) {
-      slideIndex = 1;
-    }
-    if (slideIndex < 1) {
-      slideIndex = slides.length;
-    }
-    slides[slideIndex - 1].style.display = "block";
-  }
-
-  // 自動輪播
-  function autoSlide() {
-    showSlides(1);
-    setTimeout(autoSlide, 7000); // 每2秒自動切換
-  }
-
-  autoSlide(); // 啟動自動輪播
-</script>

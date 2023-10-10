@@ -1,172 +1,86 @@
 .ad-container {
-  display: flex;
-  width: 100%;
   position: sticky;
-  bottom: 0;
-  background-image: url(./resource/background.png);
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center bottom;
-  justify-content: space-between;
+  bottom: -5px;
 }
-.ad-container .left img,
-.ad-container .right img {
-  max-width: 100%;
-  height: auto;
-}
-.ad-container .left {
+.slideshow-container {
+  max-width: 800px;
   position: relative;
-  width: 50%;
-}
-.ad-container .left img:hover {
-  animation: zoomRightMove 1s infinite;
-}
-.ad-container .right {
-  position: relative;
-  width: 50%;
-  text-align: right;
-}
-.ad-container .right img:hover {
-  animation: zoomLeftMove 1s infinite;
+  margin: auto;
 }
 
-@keyframes zoomRightMove {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.05) translate(2%, -2%);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-@keyframes zoomLeftMove {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.05) translate(-2%, -2%);
-  }
-  100% {
-    transform: scale(1);
-  }
+.mySlides {
+  display: none;
 }
 
-.ad-container .right img:hover {
-  animation: zoomLeftMove 1s infinite;
+.mySlides img {
+  width: 100%;
+  animation: slidesMove 7s infinite;
 }
-.ad-container .right .hover-image {
-  position: absolute;
-  right: 2rem;
-  bottom: 2rem;
-  width: 20%;
-  opacity: 0;
-  transform: rotate(-45deg);
-}
-.ad-container .right:hover .hover-image {
-  animation: zoomRightHover 0.2s alternate infinite;
-  opacity: 1;
-}
-.ad-container .left .hover-image {
-  position: absolute;
-  left: 2rem;
-  bottom: 2rem;
-  width: 20%;
-  opacity: 0;
-  transform: rotate(45deg) translate(5%, -5%);
-  transition: opacity 0.3s, transform 0.5s;
-}
-.ad-container .left:hover .hover-image {
-  animation: zoomLeftHover 0.2s alternate infinite;
-  opacity: 1;
-}
-
-@keyframes zoomLeftHover {
+@keyframes slidesMove {
   0% {
-    transform: rotate(45deg) translateY(-10%);
+    transform: rotate(-180deg);
+  }
+  10% {
+    transform: rotate(10deg);
+  }
+  13% {
+    transform: rotate(0deg);
+  }
+  15% {
+    transform: rotate(5deg);
+  }
+  20% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(0deg);
+  }
+  60% {
+    transform: rotate(0deg);
+  }
+  62% {
+    transform: rotate(5deg);
+  }
+  70% {
+    transform: rotate(0deg);
   }
   100% {
-    transform: rotate(45deg) translateY(-20%);
+    transform: rotate(0deg);
   }
 }
-@keyframes zoomRightHover {
-  0% {
-    transform: rotate(-45deg) translateY(-10%);
-  }
-  100% {
-    transform: rotate(-45deg) translateY(-20%);
-  }
-}
-.close-button {
+.close-button img {
   position: absolute;
-  width: 50px;
-  top: -3rem;
+  top: -40px;
   right: 0;
+  width: 50px;
+}
+.close-button img:hover {
   cursor: pointer;
 }
-.left-expand {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url(./resource/left_expand_image.png);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  z-index: 1;
-  display: none;
-  animation: expandAnimation 0.3s;
+.hand-move {
+  display: flex;
+  position: relative;
+  justify-content: center;
 }
-.left-expand img {
+.hand-move img {
   position: absolute;
-  right: 10px;
-  top: 10px;
-  width: 50px;
-  height: 50px;
-  animation: none;
-}
-.right-expand {
-  position: fixed;
-  bottom: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url(./resource/right_expand_image.png);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
+  top: -40px;
+  width: 80px;
   z-index: 1;
-  display: none;
-  animation: expandAnimation 0.3s;
+  animation: handMoveAnimation 2.5s infinite;
 }
-.right-expand img {
-  position: absolute;
-  right: 10px;
-  top: 10px;
-  width: 50px;
-  height: 50px;
-  animation: none;
+.hand-move img:hover {
+  cursor: pointer;
 }
 
-@keyframes shrinkAnimation {
+@keyframes handMoveAnimation {
   0% {
-    width: 100%;
-    height: 100%;
+    transform: translateX(-50px) rotate(0);
+  }
+  50% {
+    transform: translateX(50px) rotate(10deg);
   }
   100% {
-    width: 0;
-    height: 0;
-  }
-}
-@keyframes expandAnimation {
-  0% {
-    width: 0;
-    height: 0;
-  }
-  100% {
-    width: 100%;
-    height: 100%;
+    transform: translateX(-50px) rotate(0);
   }
 }
