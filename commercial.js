@@ -1,8 +1,8 @@
+// 添加觸控事件監聽器
 var slideIndex = 0;
 var touchStartX = 0;
 var touchEndX = 0;
 
-// 添加觸控事件監聽器
 var slideshow = document.querySelector(".slideshow-container");
 slideshow.addEventListener("touchstart", handleTouchStart, false);
 slideshow.addEventListener("touchend", handleTouchEnd, false);
